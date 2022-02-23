@@ -1,7 +1,9 @@
-SupplyChainManagement - DMDD Final Project
+Power and Utilities Distribution Management System
 ==========================================
 
-Form a team of four (or a max of 5) members. Each team will collaborate to decide a database topic. The database topics may be like Book Store, University Registration, online retail management, supply chain, banking, movie ticket reservation, e-commerce, hotel management etc. Each team will also establish the mission statement and identify the mission objectives that the database will accomplish. The mission objectives may be like Book Sales, Inventory Control, etc.
+This repository contains the code for DMDD 6210 Final Project where we aim to design and build an extensive Supply Chain Database management system for an electric generation and distribution company.
+
+For our project, we aim to build a centralized database which consists of all the data pertaining to an electric generation and distribution company viz-a-viz Customer Data, Asset Data, Outage data, Billing data, Metering data, Preventive maintenance data, Repair data, Crew data etc. We aim to create an intricate linked data lake with all these data which can be queried with ease and used to create valuable visualizations which can be used to optimize the supply chain and consequently, will translate to monetary gains for the company and immense satisfaction for the customer. This will be a breakthrough in the current legacy systems and decentralized and redundant data storage mechanisms used by the age-old organizations in this domain.
 
 <p align="center">
    <img src="https://t3.ftcdn.net/jpg/02/46/88/46/360_F_246884680_abS0auHrUhcawigmyeIT1eGD3oBT2E3S.jpg">
