@@ -12,10 +12,10 @@ For our project, we aim to build a centralized database which consists of all th
 Group Members
 =============
 
-| Name                       | NUID          | 
-| -------------------------- |:-------------:|
-| `Prathamesh Sahasrabuddhe` | 002117703     |
-| `Shika Shyam`              | 002194543     |
-| `Alisha Angalan`           | 002102014     |
-| `Pranjal Gupta`            | 001094676     |
-| `Sreeharsha Katta`         | 002105642     |
+| Name                                                      | NUID          | 
+| --------------------------------------------------------- |:-------------:|
+| [Prathamesh Sahasrabuddhe](https://github.com/prathams99) | 002117703     |
+| [Shika Shyam](https://github.com/shikashyam)              | 002194543     |
+| [Alisha Angalan](https://github.com/alishamaryangalan)    | 002102014     |
+| [Pranjal Gupta](https://github.com/pranjalgupta15)        | 001094676     |
+| [Sreeharsha Katta](https://github.com/sreeharshakatta)    | 002105642     |
