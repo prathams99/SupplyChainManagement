@@ -1,0 +1,37 @@
+.p-40 {
+    padding: 40px;
+}
+
+textarea#queryText {
+	width: 1000px;
+	height: 300px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+    font-size: 20px;
+}
+
+.queryBtn {
+    width: 30%;
+    background-color: #353746;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+  
+.queryBtn:hover {
+    background-color: hsl(233, 36%, 13%);
+  }
+
+  .div-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
