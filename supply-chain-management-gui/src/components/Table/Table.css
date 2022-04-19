@@ -4,11 +4,11 @@
     font-size: 0.9em;
     font-family: sans-serif;
     width: 90%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px rgba(215, 92, 0, 1);
 }
 
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #D75C00;
     color: #ffffff;
     text-align: left;
 }
@@ -23,7 +23,13 @@
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #1b1b1c;
+    color: #000000;
+}
+
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: #000000;
+    color: #D75C00;
 }
 
 .styled-table tbody tr:last-of-type {
@@ -32,5 +38,5 @@
 
 .styled-table tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #D75C00;
 }

@@ -78,7 +78,7 @@ const CrudPage = (props) => {
                 <div className="flex-item w-85">
                     <Table />
                 </div>
-                <div className="flex-item w-15">
+                {/* <div className="flex-item w-15">
                     <label for="cars">Command: </label>
                     <select name="commandType" id="commandType">
                         <option value="insert">INSERT</option>
@@ -94,7 +94,7 @@ const CrudPage = (props) => {
                     <input type="text" placeholder="genre"/><br />
                     <input type="text" placeholder="genre"/><br />
                     <button>Submit</button>
-                </div>
+                </div> */}
             </div>
         </div>
     )
