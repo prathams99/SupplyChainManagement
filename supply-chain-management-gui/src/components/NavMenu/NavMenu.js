@@ -15,7 +15,7 @@ const NavMenu = (props) => {
                 <h2>Select Operations</h2>
                     <li><Link style={{ textDecoration: 'none' }} to="/crud-operations">CRUD Operations</Link></li>
                     <li><Link style={{ textDecoration: 'none' }} to="/query">Run Query</Link></li>
-                    <li><Link style={{ textDecoration: 'none' }} to="/power-bi-dashboard">Power BI Dashboard</Link></li>
+                    <li><Link style={{ textDecoration: 'none' }} to="/dashboard-datastudio">Dashboard</Link></li>
                 </ul>
             </nav>
         </div>

@@ -13,6 +13,18 @@ textarea#queryText {
     font-size: 20px;
 }
 
+textarea#output {
+	width: 1000px;
+	height: 200px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
 .queryBtn {
     width: 30%;
     background-color: #353746;
@@ -22,7 +34,7 @@ textarea#queryText {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 30px;
   }
   
 .queryBtn:hover {

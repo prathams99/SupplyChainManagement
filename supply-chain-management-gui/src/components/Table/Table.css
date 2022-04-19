@@ -24,7 +24,7 @@
 
 .styled-table tbody tr:nth-of-type(even) {
     background-color: #1b1b1c;
-    color: #000000;
+    color: #e8dcdc;
 }
 
 .styled-table tbody tr:nth-of-type(odd) {

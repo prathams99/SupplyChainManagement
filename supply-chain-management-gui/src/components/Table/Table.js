@@ -1,41 +1,30 @@
 import './Table.css';
 
-const Table = () => {
+const Table = (props) => {
+
     return (
         <table class="styled-table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Points</th>
-                    <th>Name</th>
-                    <th>Points</th>
-                    <th>Name</th>
-                    <th>Points</th>
-                    <th>Name</th>
-                    <th>Points</th>
+                    {
+                        props.tableData != [] && props.tableData[0] != null && props.tableData != undefined ? Object.keys(props.tableData[0]).map((col) => (
+                            <th>{col}</th>
+                        )) : ''
+                    }
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Dom</td>
-                    <td>6000</td>
-                    <td>Dom</td>
-                    <td>6000</td>
-                    <td>Dom</td>
-                    <td>6000</td>
-                    <td>Dom</td>
-                    <td>6000</td>
-                </tr>
-                <tr class="active-row">
-                    <td>Melissa</td>
-                    <td>5150</td>
-                    <td className='wrap'>Melsdvfffffffissa</td>
-                    <td>5150</td>
-                    <td>Melissa</td>
-                    <td>5150</td>
-                    <td>Melissa</td>
-                    <td>5150</td>
-                </tr>
+                {
+                    props.tableData != [] ? props.tableData.map((row) => (
+                        <tr>
+                            {
+                                Object.keys(row).map((k) => (
+                                    <td>{row[k]}</td>
+                                ))
+                            }
+                        </tr>
+                    )) : ''
+                }
             </tbody>
         </table>
     )

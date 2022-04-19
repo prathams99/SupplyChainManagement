@@ -3,51 +3,33 @@ import './CrudPage.css';
 import NavMenu from "../NavMenu/NavMenu";
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import fetch from 'node-fetch';
 
 const CrudPage = (props) => {
 
     const [tableName, setTableName] = useState("");
     const [tableData, setTableData] = useState([]);
-    const [tableFields, setTableFields] = useState([])
 
     const selectTable = (selectedTableName) => {
         setTableName(selectedTableName);
-        getTableData();
+        getTableData(selectedTableName);
     }
 
-    const getTableFields = () => {
-        let fieldsArray = []
-        for(let k in tableData[0]) {
-            fieldsArray.push(k);
-        }
-        setTableFields(fieldsArray);
+    const getTableData = (name) => {
+        let url = new URL('http://localhost:5000/select')
+        url.search = new URLSearchParams({
+            table_name: name
+        })
+        fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            setTableData(json);
+        });
     }
-
-    const getTableData = () => {
-            var config = {
-                method: 'post',
-                url: 'https://05f6-155-33-133-1.ngrok.io/select',
-                headers: { 
-                'Content-Type': 'application/json'
-                },
-                data: {
-                    "table_name": tableName
-                }
-            };
-            
-            axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-                setTableData(response.data);
-                getTableFields();
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        }
 
     useEffect(() => {
         console.log(tableName);
+        console.log(tableData)
     }, [tableData])
 
     return (
@@ -76,7 +58,7 @@ const CrudPage = (props) => {
             <h2 className="p-20">{tableName}</h2>
             <div className="flex-container mtop-40 p-20">
                 <div className="flex-item w-85">
-                    <Table />
+                    <Table tableData={tableData}/>
                 </div>
                 {/* <div className="flex-item w-15">
                     <label for="cars">Command: </label>
