@@ -1,0 +1,41 @@
+.section-left{
+  text-decoration: bold;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  display: block;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  z-index: 6;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.section-right{
+  text-decoration: bold;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  z-index: 6;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.section-last{
+  text-decoration: bold;
+  position: absolute;
+  top: 75%;
+  left: 0;
+  display: block;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  z-index: 6;
+  text-align: center;
+  transform: translateY(-50%);
+}
