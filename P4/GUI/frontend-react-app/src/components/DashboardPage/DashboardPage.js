@@ -6,7 +6,7 @@ const DashboardPage = (props) => {
         <div>
             <NavMenu title={props.title}/>
             <div className='div-center'>
-                <iframe width="1300" height="850" src="https://datastudio.google.com/embed/reporting/ca255d37-d419-4097-b7b4-753e2dc6cfbf/page/OUbqC" frameborder="0" style={{boder: 0}} allowfullscreen></iframe>
+            <iframe title="Report Draft" width="1140" height="841.25" src="https://app.powerbi.com/reportEmbed?reportId=c501e162-dc0b-40a8-a7c0-cb3bae6ed09c&autoAuth=true&ctid=a8eec281-aaa3-4dae-ac9b-9a398b9215e7&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXVzLW5vcnRoLWNlbnRyYWwtZi1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
             </div>
         </div>
     )

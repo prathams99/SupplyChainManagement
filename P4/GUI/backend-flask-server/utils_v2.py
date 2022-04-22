@@ -102,19 +102,61 @@ def sample_query():
     # body = request.json
     # query = body.get('query',None)
     query = request.args.get("query")
-    queryStringArray = query.split("+")
+    queryStringArray = query.split("%20")
     queryString = " ".join(queryStringArray)
-    query = queryString
-    print(query)
-    if query is None or len(query) == 0:
+    # query = queryString
+    print(queryString)
+    if queryString is None or len(query) == 0:
         resp['code'] = 400
         resp["message"] = "Pass a valid query"
-        resp = jsonify(resp)
-        resp.headers.add('Access-Control-Allow-Origin', '*')
+        # resp = jsonify(resp)
+        # resp.headers.add('Access-Control-Allow-Origin', '*')
         return resp
     try:
-        cursor = conn.cursor().execute(query)
-        print(cursor)
+        print("check0")
+        cursor = conn.cursor().execute(queryString)
+        # print(cursor)
+        conn.commit()
+        resp['code'] = 200
+        resp["message"] = "Executed the query successfully"
+        print("check1 " + resp["message"])
+    except Exception as e:
+        print("check2")
+        resp['code'] = 400
+        resp["message"] = "Error while executing the query : {}".format(str(e))
+    resp = jsonify(resp)
+    resp.headers.add('Access-Control-Allow-Origin', '*')
+    print(resp)
+    # resp.headers.add('Access-Control-Allow-Credentials', 'true')
+    return resp
+
+@app.route('/insert', methods=['GET', 'POST'])
+def sql_insert():
+    resp = {}
+    conn = pyodbc.connect(
+        CONN_STR)
+    # body = request.json
+    table_name = request.args.get('table_name')
+    # vals = body.get('values', None)
+    if table_name is None:
+        resp['code'] = 400
+        resp["message"] = "Pass a valid table name"
+        return resp
+    if table_name.lower() == 'customer':
+        query_str = "INSERT INTO customer VALUES ('{0}','{1}',{2},'{3}',{4},{5},'{6}',{7},'{8}','{9}','{10}','{11}')".format(
+            request.args.get('CustID'), request.args.get('Name'), request.args.get('Contact'), request.args.get('Email'), request.args.get('isActive'), request.args.get('Age'),
+            request.args.get('DateOfBirth'), request.args.get('SSN'), request.args.get('State'), request.args.get('City'), request.args.get('Address'), request.args.get('ZipCode'))
+    elif table_name.lower() == 'account':
+        print("hello")
+        # query_str = "INSERT INTO account VALUES ('{0}','{1}','{2}','{3}',{4},{5},{6})".format(vals['AccountID'],
+        #                                                                                       vals['CustID'],
+        #                                                                                       vals['Account_Type'],
+        #                                                                                       vals['Start_Date'],                                                                                             vals['No_of_Consumers'],
+        #                                                                                       vals['IsActive'],
+        #                                                                                       vals['IsSubsidized'])
+    try:
+        print(query_str)
+        cursor = conn.cursor().execute(query_str)
         conn.commit()
         resp['code'] = 200
         resp["message"] = "Executed the query successfully"
@@ -123,7 +165,62 @@ def sample_query():
         resp["message"] = "Error while executing the query : {}".format(str(e))
     resp = jsonify(resp)
     resp.headers.add('Access-Control-Allow-Origin', '*')
-    resp.headers.add('Access-Control-Allow-Credentials', 'true')
     return resp
+
+@app.route('/update', methods=['GET', 'POST'])
+def sql_update():
+    resp = {}
+    conn = pyodbc.connect(
+        CONN_STR)
+    # body = request.json
+    table_name = request.args.get('table_name')
+    # vals = body.get('values', None)
+    if table_name is None:
+        resp['code'] = 400
+        resp["message"] = "Pass a valid table name"
+        return resp
+    if table_name.lower() == 'customer':
+        update_str = "UPDATE {0} SET Name='{2}',Contact={3},Email='{4}',isActive={5},Age={6},DateOfBirth='{7}',SSN={8},State='{7}',City='{8}',Address='{9}',ZipCode='{10}' where CustID='{1}'".format(
+            table_name, request.args.get('CustID'), request.args.get('Name'), request.args.get('Contact'), request.args.get('Email'), request.args.get('isActive'), request.args.get('Age'),
+            request.args.get('DateOfBirth'), request.args.get('SSN'), request.args.get('State'), request.args.get('City'), request.args.get('Address'), request.args.get('ZipCode'))
+
+    try:
+        cursor = conn.cursor().execute(update_str)
+        conn.commit()
+        resp['code'] = 200
+        resp["message"] = "Executed the query successfully"
+    except Exception as e:
+        resp['code'] = 400
+        resp["message"] = "Error while executing the query : {}".format(str(e))
+    resp = jsonify(resp)
+    resp.headers.add('Access-Control-Allow-Origin', '*')
+    return resp
+
+@app.route('/delete', methods=['GET', 'POST'])
+def sql_delete():
+    resp = {}
+    conn = pyodbc.connect(
+        CONN_STR)
+    table_name = request.args.get('table_name')
+    key = request.args.get('key')
+    val = request.args.get('value')
+    if table_name is None or key is None or val is None:
+        resp['code'] = 400
+        resp["message"] = "Pass valid keys and values"
+        return resp
+    if table_name.lower() == 'customer':
+       delete_str = "delete from {0} where {1}='{2}'".format(table_name,key,val)
+    try:
+        cursor = conn.cursor().execute(delete_str)
+        conn.commit()
+        resp['code'] = 200
+        resp["message"] = "Executed the query successfully"
+    except Exception as e:
+        resp['code'] = 400
+        resp["message"] = "Error while executing the query : {}".format(str(e))
+    resp = jsonify(resp)
+    resp.headers.add('Access-Control-Allow-Origin', '*')
+    return resp
+
 if __name__ == '__main__':
     app.run(port=5000)

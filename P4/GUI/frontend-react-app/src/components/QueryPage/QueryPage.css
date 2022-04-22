@@ -47,3 +47,11 @@ textarea#output {
       justify-content: center;
       align-items: center;
   }
+
+.greenText {
+    color: green;
+}
+
+.redText {
+    color: red;
+}

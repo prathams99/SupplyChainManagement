@@ -1,18 +1,19 @@
 .flex-container {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 }
 
 .mtop-40 {
   margin-top: 40px;
 }
 
-.w-85 {
-  width: 85%;
+.w-75 {
+  width: 75%;
 }
 
-.w-15 {
-  width: 15%;
+.w-25 {
+  width: 25%;
 }
 
 :root {
@@ -140,8 +141,8 @@ animation: fadeMe 300ms linear forwards;
 padding: 20px;
 }
 
-input[type=text], select {
-width: 100%;
+input[type=text], select, input[type=number], input[type=email], input[type=date] {
+width: 70%;
 padding: 12px 20px;
 margin: 8px 0;
 display: inline-block;
@@ -150,9 +151,9 @@ border-radius: 4px;
 box-sizing: border-box;
 }
 
-button {
-width: 100%;
-background-color: #353746;
+.submit {
+width: 60%;
+background-color: #D75C00;
 color: white;
 padding: 14px 20px;
 margin: 8px 0;
@@ -161,7 +162,23 @@ border-radius: 4px;
 cursor: pointer;
 }
 
-button:hover {
-background-color: hsl(233, 36%, 13%);
+.submit:hover {
+background-color: hsl(23, 100%, 51%);
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+label {
+  color: #D75C00
+}
+
+.mtop-80 {
+  margin-top: 80px;
 }
 

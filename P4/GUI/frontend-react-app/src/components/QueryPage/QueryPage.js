@@ -12,16 +12,8 @@ const QueryPage = (props) => {
         url.search = new URLSearchParams({
             query: query 
         })
-        fetch(url, {
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(response => {
-            console.log(JSON.stringify(response))
-            return response.json()
-        })
+        fetch(url)
+        .then(response => response.json())
         .then(json => {
             console.log(json);
             setQueryResponse(json);
@@ -38,9 +30,7 @@ const QueryPage = (props) => {
             <div className="p-40 div-center">
                 <textarea name="queryText" id="queryText" placeholder="Enter Your Query" onChange={handleChange}/>
                 <button onClick={submitQuery} className="queryBtn">Submit</button>
-                <textarea name="output" id="output" placeholder="Output..." value={queryResponse?.message} style={{
-                    color: "red" ? queryResponse?.status == 400 : "green"
-                }}/>
+                <textarea name="output" id="output" placeholder="Output..." value={queryResponse?.message} className={queryResponse?.code == 200 ? "greenText" : "redText"}/>
             </div>
         </div>
     )
